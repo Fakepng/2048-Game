@@ -1,11 +1,16 @@
-const GRID_SIZE = 4
-const CELL_SIZE = 20
-const CELL_GAP = 2
+let GRID_SIZE = 4
+let CELL_SIZE = 80 / GRID_SIZE
+let CELL_GAP = CELL_SIZE / 10
 
 export default class Grid {
     #cells
 
-    constructor(gridElement) {
+
+    constructor(gridElement, size) {
+        console.log(CELL_SIZE)
+        GRID_SIZE = size;
+        CELL_SIZE = 80 / GRID_SIZE
+        CELL_GAP = CELL_SIZE / 10
         gridElement.style.setProperty('--grid-size', GRID_SIZE);
         gridElement.style.setProperty('--cell-size', `${CELL_SIZE}vmin`);
         gridElement.style.setProperty('--cell-gap', `${CELL_GAP}vmin`);

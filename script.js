@@ -3,7 +3,12 @@ import Tile from './Tile.js';
 
 const gameBoard = document.getElementById('game-board');
 
-const grid = new Grid(gameBoard)
+const url_string = window.location.href;
+const url = new URL(url_string);
+const boardSize = url.searchParams.get("size") || "4";
+const boardSizeValue = parseInt(boardSize);
+
+const grid = new Grid(gameBoard, boardSizeValue)
 grid.randomEmptyCell().tile = new Tile(gameBoard);
 grid.randomEmptyCell().tile = new Tile(gameBoard);
 setupInput();
